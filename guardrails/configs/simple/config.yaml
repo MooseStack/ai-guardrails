@@ -1,0 +1,19 @@
+models:
+  - type: main
+    engine: openai
+    model: Qwen3-0.6B_ONNX_INT4_CPU
+    parameters:
+      base_url: http://nemo-demo-model:8080/v1
+      api_key: EMPTY
+
+rails:
+  input:
+    flows:
+      - regex check input
+
+  config:
+    regex_detection:
+      input:
+        case_insensitive: true
+        patterns:
+          - "ignore all previous instructions"

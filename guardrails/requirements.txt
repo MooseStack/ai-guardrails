@@ -1,0 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.13.0+cpu
+nemoguardrails[server]==0.25.0
+transformers>=4.44,<5
+tokenizers!=0.23.1,!=0.23.2
+sentencepiece

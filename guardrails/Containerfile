@@ -1,0 +1,12 @@
+FROM registry.access.redhat.com/hi/python:3.13-builder AS builder
+
+USER 0
+RUN dnf install -y libgomp && dnf clean all
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+COPY configs/ /configs/
+ENV HF_HOME=/models
+EXPOSE 8000
+CMD ["python3.13", "-m", "nemoguardrails", "server", "--config", "/configs", "--default-config-id", "regex", "--port", "8000", "--disable-chat-ui"]
