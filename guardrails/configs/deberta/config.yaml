@@ -3,7 +3,7 @@ models:
     engine: openai
     model: Qwen3-0.6B_ONNX_INT4_CPU
     parameters:
-      base_url: http://nemo-demo-model:8080/v1
+      base_url: http://genai-model:8080/v1
       api_key: EMPTY
 
 rails:
@@ -15,7 +15,7 @@ rails:
     hf_classifier:
       prompt_injection:
         engine: local
-        model: "protectai/deberta-v3-base-prompt-injection-v2"
+        model: "protectai/deberta-v3-base-prompt-injection-v2" #this will be downloaded from Huggingface
         task: text-classification
         threshold: 0.5
         blocked_labels:
