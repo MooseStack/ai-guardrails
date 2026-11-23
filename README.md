@@ -2,6 +2,8 @@
 
 Based on [Nvidia's Gaurdrails](https://github.com/NVIDIA-NeMo/Guardrails) in `Proxy Mode`. Protects against Jailbreak/injection detection, sensitive data/PII exfiltration, etc.
 
+![Guardrail Proxy Mode](guardrails-proxy-mode.png)
+
 
 # Using `podman`
 
