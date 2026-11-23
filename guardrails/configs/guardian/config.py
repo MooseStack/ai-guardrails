@@ -1,4 +1,4 @@
-"""Parse Granite Guardian's structured classification for NeMo's input rail."""
+"""Parse Granite Guardian's structured classification for Guardrails input and output rails."""
 
 import json
 import re
@@ -68,6 +68,18 @@ def guardian_score(response):
     return is_content_safe(response)
 
 
+def guardian_output_score(response):
+    """Accept only an explicit safe decision for an assistant response."""
+    try:
+        answer = json.loads(response)
+    except (TypeError, json.JSONDecodeError):
+        return [False]
+    if isinstance(answer, dict) and isinstance(answer.get("unsafe"), bool):
+        return [not answer["unsafe"]]
+    return [False]
+
+
 def init(app):
     app.register_output_parser(guardian_score, "guardian_score")
+    app.register_output_parser(guardian_output_score, "guardian_output_score")
     app.register_action(guardian_input_check, "self_check_input")

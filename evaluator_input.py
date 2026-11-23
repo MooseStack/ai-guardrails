@@ -1,4 +1,11 @@
-"""Evaluate the containerized NeMo configs against a small labeled sample."""
+"""Evaluate the Guardtails input filter on a set of sample prompts.
+Usage: 
+python3 evaluator_input.py #no arguments: runs all configs
+python3 evaluator_input.py simple
+python3 evaluator_input.py regex
+python3 evaluator_input.py deberta
+python3 evaluator_input.py guardian
+"""
 
 import json
 import os
