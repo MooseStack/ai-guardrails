@@ -7,10 +7,9 @@ This demo uses [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrail
 
 All four configurations check incoming prompts for jailbreak or injection attempts. The `guardian` configuration also checks generated replies for harmful content and sensitive-data disclosure before returning them. These model-based checks are fallible and are intended for evaluation, not as a guarantee of protection.
 
-![Guardrail Proxy Mode](guardrails-proxy-mode.png)
+![Guardrails Proxy Mode](guardrails-proxy-mode.png)
 
-The diagram shows the proxy path. Check mode calls the Guardrails checks API directly and does not call the generation model.
-
+![Guardrails Check Mode](guardrails-check-mode.png)
 
 # Using `podman`
 
